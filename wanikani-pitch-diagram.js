@@ -342,16 +342,30 @@ function drawPitchDiagram(pitchNum)
         TODO:
             does weblio use 1-6 for pitch accent
             color codes
+
+						wanikani note: user jjatria
+            	If what you have is a number, then one way to do this
+            	would be to split the word into kana, and apply the
+            	relevant style to the appropriate character. The one
+            	thing that might be tricky is that compound kana
+            	shouldbe treated as one.
+
+							It might be helpful to know that so-called
+							"defficient"mora (long vowels, ん, and the small っ)
+							cannot bear the accent (but are still counted).
+
+						failures:
+							nine: https://www.wanikani.com/vocabulary/%E4%B9%9D
     */
 
     var pitchPatterns = 
     [
-        /* 1 mora */[ [0,1], [1,0] ],
-        /* 2 mora */[ [0,1,1], [1,0,0], [0,1,0] ],   
-        /* 3 mora */[ [0,1,1,1], [1,0,0,0], [0,1,0,0], [0,1,1,0] ],
-        /* 4 mora */[ [0,1,1,1,1], [1,0,0,0,0], [0,1,0,0,0], [0,1,1,0,0], [0,1,1,1,0] ],
-        /* 5 mora */[ [0,1,1,1,1,1], [1,0,0,0,0,0], [0,1,0,0,0,0], [0,1,1,0,0,0], [0,1,1,1,0,0], [0,1,1,1,1,0] ],
-        /* 6 mora */[ [0,1,1,1,1,1,1], [1,0,0,0,0,0,0], [0,1,0,0,0,0,0], [0,1,1,0,0,0,0], [0,1,1,1,0,0,0], [0,1,1,1,1,0,0], [0,1,1,1,1,1,0] ]
+        /* 1 kana */[ [0,1], [1,0] ],
+        /* 2 kana */[ [0,1,1], [1,0,0], [0,1,0] ],   
+        /* 3 kana */[ [0,1,1,1], [1,0,0,0], [0,1,0,0], [0,1,1,0] ],
+        /* 4 kana */[ [0,1,1,1,1], [1,0,0,0,0], [0,1,0,0,0], [0,1,1,0,0], [0,1,1,1,0] ],
+        /* 5 kana */[ [0,1,1,1,1,1], [1,0,0,0,0,0], [0,1,0,0,0,0], [0,1,1,0,0,0], [0,1,1,1,0,0], [0,1,1,1,1,0] ],
+        /* 6 kana */[ [0,1,1,1,1,1,1], [1,0,0,0,0,0,0], [0,1,0,0,0,0,0], [0,1,1,0,0,0,0], [0,1,1,1,0,0,0], [0,1,1,1,1,0,0], [0,1,1,1,1,1,0] ]
     ];
 
     if (pitchNum == 0)
