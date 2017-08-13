@@ -27,13 +27,12 @@
 			cannot bear the accent (but are still counted).
 
 		failed responses:
-			vocab: Nine
 			vocab: To Think Hard (also is an example of 2 acceptable pitch accents)
 			vocab: Mountain (gets mistaken for kanji instead of vocab, i believe)
-			vocab: Seven (need to separate two readings when parsing innerText for kanaLength)
 			some single kanji vocab gets mistaken for kanji instead of vocab
 
 		display multiple pitch patterns on top of each other
+		display pitch patterns for each reading (when multiple readings exist)
 */
 
 var SHOW_PITCH_DESCRIPTION = true;
@@ -283,8 +282,8 @@ function getKanaInfo()
 		return;
 	}
 
-	// remove white space, and count kana
-	kana = kana.trim();
+	// Count kana in the first (in case multiple) reading
+	kana = kana.replace(/\s+/g, '').split(',')[0];
 	kanaLength = kana.length;
 	kanaPlusParticleLength = kanaLength + 1;
 }
